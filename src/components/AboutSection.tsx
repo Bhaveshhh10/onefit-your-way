@@ -1,4 +1,6 @@
 
+import { Link } from "react-router-dom";
+
 const AboutSection = () => {
   return (
     <section className="py-20 bg-white">
@@ -14,7 +16,7 @@ const AboutSection = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
           <div>
             <img
-              src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=1470&auto=format&fit=crop"
+              src="https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?q=80&w=1470&auto=format&fit=crop"
               alt="People in virtual fitness class"
               className="rounded-lg shadow-lg object-cover w-full h-[500px]"
             />
@@ -60,6 +62,17 @@ const AboutSection = () => {
                   <p className="text-gray-600">Choose between in-person or online training sessions.</p>
                 </div>
               </div>
+            </div>
+            <div className="mt-8">
+              <Link 
+                to="/about" 
+                className="text-onefit-blue hover:underline font-semibold flex items-center"
+              >
+                Learn more about us
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 ml-1" viewBox="0 0 20 20" fill="currentColor">
+                  <path fillRule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clipRule="evenodd" />
+                </svg>
+              </Link>
             </div>
           </div>
         </div>

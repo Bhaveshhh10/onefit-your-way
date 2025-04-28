@@ -1,10 +1,11 @@
 
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const navigate = useNavigate();
 
   return (
     <nav className="bg-white py-4 sticky top-0 z-50 shadow-sm">
@@ -34,10 +35,17 @@ const Navbar = () => {
 
         {/* CTA Buttons */}
         <div className="hidden md:flex items-center space-x-4">
-          <Button variant="outline" className="font-semibold">
+          <Button 
+            variant="outline" 
+            className="font-semibold"
+            onClick={() => navigate("/login")}
+          >
             Log In
           </Button>
-          <Button className="bg-onefit-blue hover:bg-blue-600 font-semibold">
+          <Button 
+            className="bg-onefit-blue hover:bg-blue-600 font-semibold"
+            onClick={() => navigate("/signup")}
+          >
             Sign Up
           </Button>
         </div>
@@ -63,23 +71,52 @@ const Navbar = () => {
       {isMenuOpen && (
         <div className="md:hidden bg-white border-t border-gray-100 py-4 animate-fade-in">
           <div className="container flex flex-col space-y-4">
-            <Link to="/" className="text-gray-700 hover:text-onefit-blue transition-colors py-2">
+            <Link 
+              to="/" 
+              className="text-gray-700 hover:text-onefit-blue transition-colors py-2"
+              onClick={() => setIsMenuOpen(false)}
+            >
               Home
             </Link>
-            <Link to="/trainers" className="text-gray-700 hover:text-onefit-blue transition-colors py-2">
+            <Link 
+              to="/trainers" 
+              className="text-gray-700 hover:text-onefit-blue transition-colors py-2"
+              onClick={() => setIsMenuOpen(false)}
+            >
               Find Trainers
             </Link>
-            <Link to="/pricing" className="text-gray-700 hover:text-onefit-blue transition-colors py-2">
+            <Link 
+              to="/pricing" 
+              className="text-gray-700 hover:text-onefit-blue transition-colors py-2"
+              onClick={() => setIsMenuOpen(false)}
+            >
               Pricing
             </Link>
-            <Link to="/about" className="text-gray-700 hover:text-onefit-blue transition-colors py-2">
+            <Link 
+              to="/about" 
+              className="text-gray-700 hover:text-onefit-blue transition-colors py-2"
+              onClick={() => setIsMenuOpen(false)}
+            >
               About Us
             </Link>
             <div className="pt-4 flex flex-col space-y-3">
-              <Button variant="outline" className="w-full">
+              <Button 
+                variant="outline" 
+                className="w-full"
+                onClick={() => {
+                  setIsMenuOpen(false);
+                  navigate("/login");
+                }}
+              >
                 Log In
               </Button>
-              <Button className="bg-onefit-blue hover:bg-blue-600 w-full">
+              <Button 
+                className="bg-onefit-blue hover:bg-blue-600 w-full"
+                onClick={() => {
+                  setIsMenuOpen(false);
+                  navigate("/signup");
+                }}
+              >
                 Sign Up
               </Button>
             </div>
